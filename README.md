@@ -6,13 +6,13 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
 
-_[ansible config file]_
-_[ansible hosts file]_
+_![ansible config file](https://github.com/rrazumov-rrs/rrazumov-rrs/blob/main/)_
+_![ansible hosts file](https://github.com/rrazumov-rrs/rrazumov-rrs/blob/main/)_
 
-_[ansible dvwa setup playbook]_
-_[ansible elk setup playbook]_
-_[ansible filebeat setup playbook]_
-_[ansible metricbeat setup playbook]_
+_![ansible dvwa setup playbook](https://github.com/rrazumov-rrs/rrazumov-rrs/blob/main/)_
+_![ansible elk setup playbook](https://github.com/rrazumov-rrs/rrazumov-rrs/blob/main/)_
+_![ansible filebeat setup playbook](https://github.com/rrazumov-rrs/rrazumov-rrs/blob/main/)_
+_![ansible metricbeat setup playbook](https://github.com/rrazumov-rrs/rrazumov-rrs/blob/main/)_
 
 This document contains the following details:
 - Description of the Topology
@@ -100,3 +100,5 @@ _TODO: Answer the following questions to fill in the blanks:_
 - _Which URL do you navigate to in order to check that the ELK server is running?
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+
+### Optional configurations:
