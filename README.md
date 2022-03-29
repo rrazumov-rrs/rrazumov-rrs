@@ -56,11 +56,39 @@ Machines within the network can only be accessed by _____.
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses |
-|----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
-|          |                     |                      |
++--------------------------------------------------------------------------------------------------------------------------+
+|                                          DVWA VNET NETWORK SECURITY GROUP RULES                                          |
++==============+===========+==============+===================+=================+============+=============================+
+| **PRIORITY** |  **PORT** | **PROTOCOL** |     **SOURCE**    | **DESTINATION** | **ACTION** |       **DESCRIPTION**       |
++--------------+-----------+--------------+-------------------+-----------------+------------+-----------------------------+
+|     4070     |     80    |      TCP     | AzureLoadBalancer |  VirtualNetwork |    ALLOW   | LOADBALLANCER HEALTH PROBES |
++--------------+-----------+--------------+-------------------+-----------------+------------+-----------------------------+
+|     4071     | 5601,9200 |      TCP     |   VirtualNetwork  |  VirtualNetwork |    ALLOW   |    SEND STATISTICS TO ELK   |
++--------------+-----------+--------------+-------------------+-----------------+------------+-----------------------------+
+|     4071     |     22    |      TCP     |      10.0.0.4     |   10.0.1.0/24   |    ALLOW   |    SSH FROM JBOX TO DVWA    |
++--------------+-----------+--------------+-------------------+-----------------+------------+-----------------------------+
+|     4081     |     22    |      TCP     |  108.168.111.241  |     10.0.0.4    |    ALLOW   |    SSH FROM HOME TO JBOX    |
++--------------+-----------+--------------+-------------------+-----------------+------------+-----------------------------+
+|     4082     |     80    |      TCP     |  108.168.111.241  |   10.0.1.0/24   |    ALLOW   |    HTTP FROM HOME TO DVWA   |
++--------------+-----------+--------------+-------------------+-----------------+------------+-----------------------------+
+|     4096     |    ANY    |      ANY     |        ANY        |       ANY       |    DENY    |   DENY ALL TRAFFIC ON VNET  |
++--------------+-----------+--------------+-------------------+-----------------+------------+-----------------------------+
+
++--------------------------------------------------------------------------------------------------------------------------+
+|                                           ELK VNET NETWORK SECURITY GROUP RULES                                          |
++==============+===========+==============+===================+=================+============+=============================+
+| **PRIORITY** |  **PORT** | **PROTOCOL** |     **SOURCE**    | **DESTINATION** | **ACTION** |       **DESCRIPTION**       |
++--------------+-----------+--------------+-------------------+-----------------+------------+-----------------------------+
+|     4070     |    5601   |      TCP     | AzureLoadBalancer |  VirtualNetwork |    ALLOW   | LOADBALLANCER HEALTH PROBES |
++--------------+-----------+--------------+-------------------+-----------------+------------+-----------------------------+
+|     4071     | 5601,9200 |      TCP     |   VirtualNetwork  |  VirtualNetwork |    ALLOW   |    SEND STATISTICS TO ELK   |
++--------------+-----------+--------------+-------------------+-----------------+------------+-----------------------------+
+|     4071     |     22    |      TCP     |      10.0.0.4     |   10.10.1.0/24  |    ALLOW   |     SSH FROM JBOX TO ELK    |
++--------------+-----------+--------------+-------------------+-----------------+------------+-----------------------------+
+|     4080     |    5601   |      TCP     |  108.168.111.241  |   10.10.1.0/24  |    ALLOW   |   HOME TO ELK HTTP CONNECT  |
++--------------+-----------+--------------+-------------------+-----------------+------------+-----------------------------+
+|     4096     |    ANY    |      ANY     |        ANY        |       ANY       |    DENY    |   DENY ALL TRAFFIC ON VNET  |
++--------------+-----------+--------------+-------------------+-----------------+------------+-----------------------------+
 
 ### Elk Configuration
 
@@ -110,9 +138,9 @@ The files in this repository were used to configure the network depicted below.
 
 Changes made:
 
-Added another elk slack server for redundancy
-Added both servers on the load balancer with public ip address
-Load balancer automatically redirects requests on port 80 to port 5601
-Both DVWA and ELK are accessible not only by ip address, but by FQDN
+- Added another elk slack server for redundancy
+- Added both servers on the load balancer with public ip address
+- Load balancer automatically redirects requests on port 80 to port 5601
+- Both DVWA and ELK are accessible not only by ip address, but by FQDN
 
 **Trying to add shorter and more custom FQDN**
