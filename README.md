@@ -101,4 +101,9 @@ _TODO: Answer the following questions to fill in the blanks:_
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
-### Optional configurations:
+### Optional configurations
+
+
+The files in this repository were used to configure the network depicted below.
+
+![Network Diagram](https://github.com/rrazumov-rrs/rrazumov-rrs/blob/main/Diagrams/ELK_STACK_PROJECT-BONUS.png)
