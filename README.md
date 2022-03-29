@@ -56,14 +56,14 @@ Machines within the network can only be accessed by _____.
 
 A summary of the access policies in place can be found in the table below.
 
-| **PRIORITY** |  **PORT** | **PROTOCOL** |     **SOURCE**    | **DESTINATION** | **ACTION** |       **DESCRIPTION**       |
-|------------|---------|------------|-----------------|---------------|----------|---------------------------|
-|    _4070_    |     80    |      TCP     | AzureLoadBalancer |  VirtualNetwork |    ALLOW   | LOADBALLANCER HEALTH PROBES |
-|    _4071_    | 5601,9200 |      TCP     |   VirtualNetwork  |  VirtualNetwork |    ALLOW   | SEND STATISTICS TO ELK      |
-|    _4072_    |     22    |      TCP     |      10.0.0.4     |   10.0.1.0/24   |    ALLOW   | SSH FROM JBOX TO DVWA       |
-|    _4080_    |     22    |      TCP     |  108.168.111.241  |     10.0.0.4    |    ALLOW   | SSH FROM HOME TO JBOX       |
-|    _4081_    |     80    |      TCP     |  108.168.111.241  |   10.0.1.0/24   |    ALLOW   | HTTP FROM HOME TO DVWA      |
-|    _4096_    |    ANY    |      ANY     |        ANY        |       ANY       |    DENY    | DENY ALL TRAFFIC ON VNET    |
+| **PRIORITY** | **PORT** | **PROTOCOL** | **SOURCE** | **DESTINATION** | **ACTION** | **DESCRIPTION** |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| _4070_ | 80 | TCP | AzureLoadBalancer | VirtualNetwork | ALLOW | LOADBALLANCER HEALTH PROBES |
+| _4071_ | 5601,9200 | TCP | VirtualNetwork | VirtualNetwork | ALLOW | SEND STATISTICS TO ELK |
+| _4072_ | 22 | TCP | 10.0.0.4 | 10.0.1.0/24 | ALLOW | SSH FROM JBOX TO DVWA |
+| _4080_ | 22 | TCP | 108.168.111.241 | 10.0.0.4 | ALLOW | SSH FROM HOME TO JBOX |
+| _4081_ | 80 | TCP | 108.168.111.241 | 10.0.1.0/24 | ALLOW | HTTP FROM HOME TO DVWA |
+| _4096_ | ANY | ANY | ANY | ANY | DENY | DENY ALL TRAFFIC ON VNET |
 
 ### Elk Configuration
 
