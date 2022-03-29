@@ -2,11 +2,17 @@
 
 The files in this repository were used to configure the network depicted below.
 
-[Network Diagram](diagram/UNIT13-ELK STACK PROJECT.png)
+![Network Diagram](diagram/UNIT13-ELK STACK PROJECT.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
 
-  - _TODO: Enter the playbook file._
+_[ansible config file]_
+_[ansible hosts file]_
+
+_[ansible dvwa setup playbook]_
+_[ansible elk setup playbook]_
+_[ansible filebeat setup playbook]_
+_[ansible metricbeat setup playbook]_
 
 This document contains the following details:
 - Description of the Topology
