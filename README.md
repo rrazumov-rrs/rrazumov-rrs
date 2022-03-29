@@ -107,3 +107,12 @@ _As a **Bonus**, provide the specific commands the user will need to run to down
 The files in this repository were used to configure the network depicted below.
 
 ![Network Diagram](https://github.com/rrazumov-rrs/rrazumov-rrs/blob/main/Diagrams/ELK_STACK_PROJECT-BONUS.png)
+
+Changes made:
+
+Added another elk slack server for redundancy
+Added both servers on the load balancer with public ip address
+Load balancer automatically redirects requests on port 80 to port 5601
+Both DVWA and ELK are accessible not only by ip address, but by FQDN
+
+**Trying to add shorter and more custom FQDN**
